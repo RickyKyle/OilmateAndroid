@@ -1,13 +1,16 @@
 package com.rickykyle.oilmate.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.rickykyle.oilmate.R;
 import com.rickykyle.oilmate.Reading;
 import com.rickykyle.oilmate.api.OilmateApi;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import retrofit2.Call;
@@ -34,7 +37,7 @@ public class ReadingListActivity extends AppCompatActivity {
 
         OilmateApi oilmateApi = retrofit.create(OilmateApi.class);
 
-        Call<List<Reading>> call = oilmateApi.getReadings();
+        Call<List<Reading>> call = oilmateApi.loadReadings();
 
         call.enqueue(new Callback<List<Reading>>() {
             @Override
@@ -62,5 +65,10 @@ public class ReadingListActivity extends AppCompatActivity {
             }
 
         });
+    }
+
+    public void onHomeButtonClick (View v) {
+        Intent goToHome = new Intent(getBaseContext(), MainActivity.class);
+        startActivity(goToHome);
     }
 }

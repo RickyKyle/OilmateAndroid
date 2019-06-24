@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.rickykyle.oilmate.api.OilmateApi;
 import com.rickykyle.oilmate.R;
 import com.rickykyle.oilmate.Reading;
+import com.rickykyle.oilmate.api.OilmateApi;
 
 import java.util.List;
 
@@ -20,14 +20,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView textViewResult;
+    private TextView remainingOil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textViewResult = findViewById(R.id.remainingOil);
+        remainingOil = findViewById(R.id.remainingOil);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://159.65.93.37/api/")
@@ -36,40 +36,37 @@ public class MainActivity extends AppCompatActivity {
 
         OilmateApi oilmateApi = retrofit.create(OilmateApi.class);
 
-        Call<List<Reading>> call = oilmateApi.getReadings();
+        Call<List<Reading>> call = oilmateApi.loadReadings();
 
         call.enqueue(new Callback<List<Reading>>() {
             @Override
             public void onResponse(Call<List<Reading>> call, Response<List<Reading>> response) {
                 if (!response.isSuccessful()) {
-                    textViewResult.setText("Code: " + response.code());
+                    remainingOil.setText("Code: " + response.code());
                     return;
                 }
 
                 List<Reading> readings = response.body();
-                String displayLatestReading = "";
-                Reading latestReading = readings.get(readings.size() - 1);
-                int remainingOil = (int) latestReading.getReading();
-                String displayRemainingOil = remainingOil + " litres";
-                textViewResult.append(displayRemainingOil);
+                int latestReading = (int) readings.get(readings.size() - 1).getReading();
+                String latestReadingResult = latestReading + " litres";
+                remainingOil.append(latestReadingResult);
+
 
             }
 
             @Override
             public void onFailure(Call<List<Reading>> call, Throwable t) {
-                textViewResult.setText((t.getMessage()));
+                remainingOil.setText((t.getMessage()));
 
             }
 
         });
 
 
-
     }
 
-    public void onReadingListClick (View v){
+    public void onReadingListClick(View v) {
         Intent goToReadingList = new Intent(getBaseContext(), ReadingListActivity.class);
         startActivity(goToReadingList);
     }
-
 }

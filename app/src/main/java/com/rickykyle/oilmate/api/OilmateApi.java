@@ -12,5 +12,5 @@ public interface OilmateApi {
 
     @Headers("x-access-token: oilmateaccesspass")
     @GET("readings")
-    Call<List<Reading>> getReadings();
+    Call<List<Reading>> loadReadings();
 }

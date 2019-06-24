@@ -4,70 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#9DCCC2"
     tools:context=".activities.MainActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginTop="719dp"
-        android:background="#E16132"
+        android:id="@+id/topToolbar"
+        android:layout_width="412dp"
+        android:layout_height="66dp"
+        android:background="#7DC4B2"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <ImageView
-        android:id="@+id/readingsList"
-        android:layout_width="66dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginEnd="339dp"
-        android:layout_marginRight="339dp"
-        android:layout_marginBottom="4dp"
-        android:onClick="onReadingListClick"
-        android:src="@drawable/search"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/oilmateLogo"
-        android:layout_width="386dp"
-        android:layout_height="71dp"
-        android:layout_marginStart="105dp"
-        android:layout_marginLeft="105dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:alpha="1"
-        android:fontFamily="@font/cinzel"
-        android:gravity="center_horizontal"
-        android:text="OilMate"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        app:fontFamily="@font/cinzel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="341dp"
-        android:layout_height="460dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/toolbar"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/bottomToolbar"
+        android:layout_width="413dp"
+        android:layout_height="63dp"
+        android:background="#E16132"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/readingsList"
+        android:layout_width="58dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginLeft="71dp"
+        android:layout_marginBottom="13dp"
+        android:onClick="onReadingListClick"
+        android:src="@drawable/search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:layout_width="359dp"
+        android:layout_height="263dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottomToolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.709">
+        app:layout_constraintTop_toBottomOf="@+id/topToolbar">
 
         <TextView
             android:id="@+id/welcome1"
@@ -95,5 +77,58 @@
             android:textSize="24sp" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/readingsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="HOME"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/topToolbar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/topToolbar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/settingsIcon"
+        android:layout_width="36dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="119dp"
+        android:layout_marginRight="119dp"
+        android:layout_marginBottom="683dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/readingsTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/settings" />
+
+    <ImageView
+        android:id="@+id/homeIcon"
+        android:layout_width="58dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bottomToolbar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bottomToolbar"
+        app:srcCompat="@drawable/homeblack" />
+
+    <ImageView
+        android:id="@+id/graphIcon"
+        android:layout_width="58dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginRight="71dp"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/linechart" />
 
 </android.support.constraint.ConstraintLayout>
