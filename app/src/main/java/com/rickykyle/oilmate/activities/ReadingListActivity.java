@@ -9,8 +9,8 @@ import android.widget.TextView;
 import com.rickykyle.oilmate.R;
 import com.rickykyle.oilmate.Reading;
 import com.rickykyle.oilmate.api.OilmateApi;
+import com.rickykyle.oilmate.api.ServiceCreator;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import retrofit2.Call;
@@ -30,13 +30,7 @@ public class ReadingListActivity extends AppCompatActivity {
 
         result = findViewById(R.id.result);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://159.65.93.37/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        OilmateApi oilmateApi = retrofit.create(OilmateApi.class);
-
+        OilmateApi oilmateApi = ServiceCreator.createService(OilmateApi.class);
         Call<List<Reading>> call = oilmateApi.loadReadings();
 
         call.enqueue(new Callback<List<Reading>>() {
@@ -49,10 +43,10 @@ public class ReadingListActivity extends AppCompatActivity {
 
                 List<Reading> readings = response.body();
 
-                for (Reading reading : readings){
+                for (Reading reading : readings) {
                     String readingsToOutput = "";
                     readingsToOutput += "Date: " + reading.getDate() + "\nTime: " + reading.getTime()
-                        + "\nReading: " + reading.getReading() + "litres \n\n";
+                            + "\nReading: " + reading.getReading() + "litres \n\n";
                     result.append(readingsToOutput);
                 }
 
@@ -67,8 +61,13 @@ public class ReadingListActivity extends AppCompatActivity {
         });
     }
 
-    public void onHomeButtonClick (View v) {
+    public void onHomeButtonClick(View v) {
         Intent goToHome = new Intent(getBaseContext(), MainActivity.class);
         startActivity(goToHome);
+    }
+
+    public void onGraphButtonClick(View v){
+        Intent goToGraph =  new Intent(getBaseContext(), ReadingGraphActivity.class);
+        startActivity(goToGraph);
     }
 }

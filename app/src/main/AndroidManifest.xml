@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/droplet"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.ReadingListActivity"></activity>
+        <activity android:name=".activities.ReadingGraphActivity"></activity>
+        <activity android:name=".activities.ReadingListActivity" />
         <activity android:name=".activities.AccountCreateActivity" />
         <activity android:name=".activities.LoginActivity">
             <intent-filter>

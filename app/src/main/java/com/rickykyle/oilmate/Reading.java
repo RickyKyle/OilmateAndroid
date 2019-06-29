@@ -8,10 +8,6 @@ public class Reading {
     private String date;
     private String time;
 
-    public Reading(){
-
-    }
-
     public int getReadingID() {
         return readingID;
     }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity">
+    tools:context=".activities.ReadingGraphActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/topToolbar"
@@ -41,49 +41,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <LinearLayout
-        android:layout_width="359dp"
-        android:layout_height="263dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/bottomToolbar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topToolbar">
-
-        <TextView
-            android:id="@+id/welcome1"
-            android:layout_width="match_parent"
-            android:layout_height="76dp"
-            android:gravity="center"
-            android:text="You have approximately"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/remainingOil"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="#E16132"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/welcome2"
-            android:layout_width="match_parent"
-            android:layout_height="76dp"
-            android:gravity="center"
-            android:text="of oil remaining."
-            android:textSize="24sp" />
-
-    </LinearLayout>
-
     <TextView
         android:id="@+id/graphTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="HOME"
+        android:text="GRAPH"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -104,6 +67,7 @@
         android:layout_marginBottom="683dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/graphTitle"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -114,11 +78,12 @@
         android:layout_width="58dp"
         android:layout_height="37dp"
         android:layout_marginBottom="13dp"
+        android:onClick="onHomeButtonClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bottomToolbar"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottomToolbar"
-        app:srcCompat="@drawable/homeblack" />
+        app:srcCompat="@drawable/home" />
 
     <ImageView
         android:id="@+id/graphIcon"
@@ -127,9 +92,20 @@
         android:layout_marginEnd="68dp"
         android:layout_marginRight="71dp"
         android:layout_marginBottom="13dp"
-        android:onClick="onGraphButtonClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/linechart" />
+        app:srcCompat="@drawable/linechartblack" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/lineChart"
+        android:layout_width="411dp"
+        android:layout_height="561dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

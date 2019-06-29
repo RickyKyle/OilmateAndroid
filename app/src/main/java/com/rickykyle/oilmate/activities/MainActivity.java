@@ -69,4 +69,9 @@ public class MainActivity extends AppCompatActivity {
         Intent goToReadingList = new Intent(getBaseContext(), ReadingListActivity.class);
         startActivity(goToReadingList);
     }
+
+    public void onGraphButtonClick(View v){
+        Intent goToGraph =  new Intent(getBaseContext(), ReadingGraphActivity.class);
+        startActivity(goToGraph);
+    }
 }
