@@ -12,17 +12,18 @@
         android:roundIcon="@mipmap/droplet"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.ReadingGraphActivity"></activity>
-        <activity android:name=".activities.ReadingListActivity" />
-        <activity android:name=".activities.AccountCreateActivity" />
-        <activity android:name=".activities.LoginActivity">
+        <activity android:name=".View.ReadingGraphActivity"></activity>
+        <activity android:name=".View.ReadingListActivity" />
+        <activity android:name=".View.AccountCreateActivity" />
+        <activity android:name=".View.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".View.MainActivity" />
+
     </application>
 
 </manifest>

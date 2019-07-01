@@ -1,4 +1,4 @@
-package com.rickykyle.oilmate.activities;
+package com.rickykyle.oilmate.View;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

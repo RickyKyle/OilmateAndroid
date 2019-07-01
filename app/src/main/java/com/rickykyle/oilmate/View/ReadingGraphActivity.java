@@ -1,4 +1,4 @@
-package com.rickykyle.oilmate.activities;
+package com.rickykyle.oilmate.View;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,8 +12,8 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.rickykyle.oilmate.R;
 import com.rickykyle.oilmate.Reading;
-import com.rickykyle.oilmate.api.OilmateApi;
-import com.rickykyle.oilmate.api.ServiceCreator;
+import com.rickykyle.oilmate.API.OilmateApi;
+import com.rickykyle.oilmate.API.ServiceCreator;
 
 import java.util.ArrayList;
 import java.util.List;

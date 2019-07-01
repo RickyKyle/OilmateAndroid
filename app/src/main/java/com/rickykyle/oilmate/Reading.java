@@ -1,11 +1,24 @@
 package com.rickykyle.oilmate;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Reading {
 
+    @SerializedName("readingID")
+    @Expose
     private int readingID;
+    @SerializedName("deviceID")
+    @Expose
     private int deviceID;
+    @SerializedName("reading")
+    @Expose
     private float reading;
+    @SerializedName("date")
+    @Expose
     private String date;
+    @SerializedName("time")
+    @Expose
     private String time;
 
     public int getReadingID() {
@@ -47,4 +60,5 @@ public class Reading {
     public void setTime(String time) {
         this.time = time;
     }
+
 }

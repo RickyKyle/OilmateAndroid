@@ -1,4 +1,4 @@
-package com.rickykyle.oilmate.api;
+package com.rickykyle.oilmate.API;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
