@@ -1,4 +1,4 @@
-package com.rickykyle.oilmate.View;
+package com.rickykyle.oilmate.views;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +16,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onLoginClick (View v){
-        Intent initiateLogin = new Intent(getBaseContext(), MainActivity.class);
+        Intent initiateLogin = new Intent(getBaseContext(), CurrentOilActivity.class);
         startActivity(initiateLogin);
     }
 

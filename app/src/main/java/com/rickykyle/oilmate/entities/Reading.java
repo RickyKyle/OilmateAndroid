@@ -1,4 +1,4 @@
-package com.rickykyle.oilmate;
+package com.rickykyle.oilmate.entities;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
