@@ -1,22 +1,19 @@
 package com.rickykyle.oilmate.presenters;
 
-import android.util.Log;
-
 import com.rickykyle.oilmate.contracts.CurrentOilContract;
 import com.rickykyle.oilmate.entities.Reading;
-import com.rickykyle.oilmate.entities.ReadingResponse;
 import com.rickykyle.oilmate.models.ReadingModel;
 
 import java.util.List;
 
 import retrofit2.Response;
 
-public class CurrentOilPresenter implements CurrentOilContract.Presenter, CurrentOilContract.APIListener {
+public class ReadingPresenter implements CurrentOilContract.Presenter, CurrentOilContract.APIListener {
 
     CurrentOilContract.View view;
     CurrentOilContract.Model model;
 
-    public CurrentOilPresenter(CurrentOilContract.View v){
+    public ReadingPresenter(CurrentOilContract.View v){
         view = v;
         model = new ReadingModel();
 

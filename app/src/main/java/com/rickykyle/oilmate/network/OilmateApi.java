@@ -1,8 +1,6 @@
 package com.rickykyle.oilmate.network;
 
 import com.rickykyle.oilmate.entities.Reading;
-import com.rickykyle.oilmate.entities.ReadingResponse;
-import com.rickykyle.oilmate.utilities.Constants;
 
 import java.util.List;
 

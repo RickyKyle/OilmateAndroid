@@ -4,7 +4,6 @@ import android.util.Log;
 
 import com.rickykyle.oilmate.contracts.CurrentOilContract;
 import com.rickykyle.oilmate.entities.Reading;
-import com.rickykyle.oilmate.entities.ReadingResponse;
 import com.rickykyle.oilmate.network.OilmateApi;
 import com.rickykyle.oilmate.network.ServiceCreator;
 

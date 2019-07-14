@@ -1,7 +1,6 @@
 package com.rickykyle.oilmate.contracts;
 
 import com.rickykyle.oilmate.entities.Reading;
-import com.rickykyle.oilmate.entities.ReadingResponse;
 
 import java.util.List;
 
