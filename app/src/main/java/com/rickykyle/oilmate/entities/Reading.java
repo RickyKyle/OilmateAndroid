@@ -3,6 +3,10 @@ package com.rickykyle.oilmate.entities;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Reading {
 
     @SerializedName("readingID")
@@ -16,10 +20,18 @@ public class Reading {
     private float reading;
     @SerializedName("date")
     @Expose
-    private String date;
+    private Date date;
     @SerializedName("time")
     @Expose
     private String time;
+
+    public Reading(int readingID, int deviceID, float reading, Date date, String time) {
+        this.readingID = readingID;
+        this.deviceID = deviceID;
+        this.reading = reading;
+        this.date = date;
+        this.time = time;
+    }
 
     public int getReadingID() {
         return readingID;
@@ -45,11 +57,11 @@ public class Reading {
         this.reading = reading;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -62,3 +74,4 @@ public class Reading {
     }
 
 }
+

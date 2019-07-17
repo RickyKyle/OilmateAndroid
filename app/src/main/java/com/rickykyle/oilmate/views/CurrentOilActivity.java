@@ -3,7 +3,7 @@ package com.rickykyle.oilmate.views;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
 import android.view.View;
@@ -31,6 +31,12 @@ public class CurrentOilActivity extends AppCompatActivity implements CurrentOilC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         presenter = new ReadingPresenter(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
     @Override
@@ -100,5 +106,10 @@ public class CurrentOilActivity extends AppCompatActivity implements CurrentOilC
     public void onGraphButtonClick(View v){
         Intent goToGraph =  new Intent(getBaseContext(), ReadingGraphActivity.class);
         startActivity(goToGraph);
+    }
+
+    public void onSettingsButtonClick(View v){
+        Intent goToSettings = new Intent(getBaseContext(), SettingsActivity.class);
+        startActivity(goToSettings);
     }
 }
