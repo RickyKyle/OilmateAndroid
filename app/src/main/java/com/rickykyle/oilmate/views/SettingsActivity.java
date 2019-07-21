@@ -1,5 +1,6 @@
 package com.rickykyle.oilmate.views;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.rickykyle.oilmate.R;
+import com.rickykyle.oilmate.contracts.CurrentOilContract;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -21,8 +23,6 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        onBackArrowClick();
-
     }
 
     @Override
@@ -31,14 +31,33 @@ public class SettingsActivity extends AppCompatActivity {
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
-    private void onBackArrowClick(){
-        backArrow = findViewById(R.id.backArrow);
-        backArrow.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+    public void onBackArrowClick (View v){
+        Intent goHome =  new Intent(getBaseContext(), CurrentOilActivity.class);
+        startActivity(goHome);
     }
+
+    public void onSetLowerOilLimitClick(View v){
+        Intent goToSetLowerOilLimit =  new Intent(getBaseContext(), SetLowerOilLimitActivity.class);
+        startActivity(goToSetLowerOilLimit);
+    }
+
+    public void onChangeTankDimensionsClick (View v){
+        Intent goToChangeTankDimensions =  new Intent(getBaseContext(), ChangeTankDimensionsActivity.class);
+        startActivity(goToChangeTankDimensions);
+    }
+
+    public void onLinkHiveAccountClick (View v){
+        Intent goToLinkHive = new Intent(getBaseContext(), LinkHiveAccountActivity.class);
+        startActivity(goToLinkHive);
+    }
+
+    public void onSetTargetTemperatureClick (View v){
+        Intent goToTargetTemperature = new Intent(getBaseContext(), SetTargetTemperatureActivity.class);
+        startActivity(goToTargetTemperature);
+    }
+
+
+
+
 
 }

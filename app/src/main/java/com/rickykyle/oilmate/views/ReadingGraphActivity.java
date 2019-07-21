@@ -11,7 +11,7 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.rickykyle.oilmate.R;
-import com.rickykyle.oilmate.entities.Reading;
+import com.rickykyle.oilmate.network.responses.Reading;
 import com.rickykyle.oilmate.utilities.Globals;
 
 import java.util.ArrayList;

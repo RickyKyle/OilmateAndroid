@@ -1,6 +1,5 @@
 package com.rickykyle.oilmate.views;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +11,7 @@ import android.widget.Toast;
 
 import com.rickykyle.oilmate.contracts.CurrentOilContract;
 import com.rickykyle.oilmate.R;
-import com.rickykyle.oilmate.entities.Reading;
+import com.rickykyle.oilmate.network.responses.Reading;
 import com.rickykyle.oilmate.presenters.ReadingPresenter;
 import com.rickykyle.oilmate.utilities.Globals;
 
@@ -24,7 +23,6 @@ public class CurrentOilActivity extends AppCompatActivity implements CurrentOilC
 
     private TextView remainingOil;
     CurrentOilContract.Presenter presenter;
-    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +39,7 @@ public class CurrentOilActivity extends AppCompatActivity implements CurrentOilC
 
     @Override
     public void setupUI() {
-
-        progressDialog = new ProgressDialog(this);
         remainingOil = findViewById(R.id.remainingOil);
-
         Globals.readings = new ArrayList<>();
     }
 
@@ -65,37 +60,6 @@ public class CurrentOilActivity extends AppCompatActivity implements CurrentOilC
     public void showMessage(String msg) {
         Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
         Log.d("Error!", "showMessage: " + msg);
-    }
-
-    @Override
-    public void showProgressDialog() {
-
-        if (progressDialog != null && progressDialog.isShowing()) {
-            progressDialog.setMessage("Loading...");
-        } else {
-            progressDialog.setIndeterminate(true);
-            progressDialog.setMessage("Loading...");
-            progressDialog.setCancelable(false);
-
-            try {
-                progressDialog.show();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override
-    public void hideProgressDialog() {
-
-        try {
-            if (progressDialog != null && progressDialog.isShowing()) {
-                progressDialog.dismiss();
-                progressDialog.hide();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public void onReadingListClick(View v) {

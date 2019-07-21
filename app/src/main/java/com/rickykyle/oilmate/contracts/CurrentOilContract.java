@@ -1,6 +1,6 @@
 package com.rickykyle.oilmate.contracts;
 
-import com.rickykyle.oilmate.entities.Reading;
+import com.rickykyle.oilmate.network.responses.Reading;
 
 import java.util.List;
 
@@ -18,9 +18,6 @@ public interface CurrentOilContract {
 
         void displayReadingData(List<Reading> readingList);
         void showMessage(String msg);
-
-        void showProgressDialog();
-        void hideProgressDialog();
     }
 
     interface Presenter {

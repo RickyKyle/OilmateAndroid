@@ -1,10 +1,8 @@
-package com.rickykyle.oilmate.entities;
+package com.rickykyle.oilmate.network.responses;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.sql.Time;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Reading {

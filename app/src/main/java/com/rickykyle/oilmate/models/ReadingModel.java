@@ -3,9 +3,10 @@ package com.rickykyle.oilmate.models;
 import android.util.Log;
 
 import com.rickykyle.oilmate.contracts.CurrentOilContract;
-import com.rickykyle.oilmate.entities.Reading;
+import com.rickykyle.oilmate.network.responses.Reading;
 import com.rickykyle.oilmate.network.OilmateApi;
 import com.rickykyle.oilmate.network.ServiceCreator;
+import com.rickykyle.oilmate.utilities.Globals;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class ReadingModel implements CurrentOilContract.Model {
         try {
 
             OilmateApi oilmateApi = ServiceCreator.createService(OilmateApi.class);
-            Call<List<Reading>> call = oilmateApi.getOilReadings();
+            Call<List<Reading>> call = oilmateApi.getOilReadings(Globals.token);
 
             call.enqueue(new Callback<List<Reading>>() {
                 @Override

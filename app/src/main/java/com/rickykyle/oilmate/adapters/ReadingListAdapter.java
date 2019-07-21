@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.rickykyle.oilmate.R;
-import com.rickykyle.oilmate.entities.Reading;
+import com.rickykyle.oilmate.network.responses.Reading;
 import com.rickykyle.oilmate.utilities.Globals;
 
 import java.text.SimpleDateFormat;

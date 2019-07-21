@@ -9,7 +9,7 @@ import android.view.View;
 
 import com.rickykyle.oilmate.R;
 import com.rickykyle.oilmate.adapters.ReadingListAdapter;
-import com.rickykyle.oilmate.entities.Reading;
+import com.rickykyle.oilmate.network.responses.Reading;
 import com.rickykyle.oilmate.utilities.Globals;
 
 import java.util.ArrayList;
@@ -21,7 +21,6 @@ public class ReadingListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +35,6 @@ public class ReadingListActivity extends AppCompatActivity {
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
-
     public void setReadingListRecycler(){
         recyclerView = findViewById(R.id.reading_list_recycler);
 
@@ -50,7 +48,6 @@ public class ReadingListActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
     }
-
 
     public void onHomeButtonClick(View v) {
         Intent goToHome = new Intent(getBaseContext(), CurrentOilActivity.class);
