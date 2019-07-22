@@ -1,5 +1,6 @@
 package com.rickykyle.oilmate.models;
 
+import android.provider.Settings;
 import android.util.Log;
 
 import com.rickykyle.oilmate.contracts.CurrentOilContract;
@@ -22,7 +23,7 @@ public class ReadingModel implements CurrentOilContract.Model {
         try {
 
             OilmateApi oilmateApi = ServiceCreator.createService(OilmateApi.class);
-            Call<List<Reading>> call = oilmateApi.getOilReadings(Globals.token);
+            Call<List<Reading>> call = oilmateApi.getOilReadings(Globals.token, Globals.userID);
 
             call.enqueue(new Callback<List<Reading>>() {
                 @Override

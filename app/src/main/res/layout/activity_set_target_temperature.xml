@@ -147,7 +147,6 @@
         android:layout_marginTop="278dp"
         android:layout_marginEnd="132dp"
         android:layout_marginRight="132dp"
-        android:text="18 degrees"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

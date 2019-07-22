@@ -1,5 +1,6 @@
 package com.rickykyle.oilmate.models;
 
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -15,6 +16,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginModel implements LoginContract.Model {
+
     @Override
     public void postNewLogin(String username, String password, String token) {
         try {
@@ -22,8 +24,13 @@ public class LoginModel implements LoginContract.Model {
             oilmateApi.postLogin(username, password).enqueue(new Callback<LoginRequestResponse>() {
                 @Override
                 public void onResponse(Call<LoginRequestResponse> call, Response<LoginRequestResponse> response) {
-                    String token = response.body().getToken();
-                    LoginPresenter.setTokenChangeView(token);
+                    if (response.body() == null){
+                        LoginPresenter.invalidLogin("Invalid or missing login credentials.");
+                    } else {
+                        String token = response.body().getToken();
+                        int userID = response.body().getUserID();
+                        LoginPresenter.setTokenChangeView(token, userID);
+                    }
                 }
 
                 @Override

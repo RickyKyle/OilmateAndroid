@@ -14,6 +14,9 @@ public class LoginRequestResponse {
     @Expose
     private String token;
 
+    @Expose
+    private int userID;
+
     public String getToken() {
         return token;
     }
@@ -36,6 +39,14 @@ public class LoginRequestResponse {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
 }

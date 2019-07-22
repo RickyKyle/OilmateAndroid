@@ -10,7 +10,7 @@ import retrofit2.Response;
 
 public class SetTargetTemperaturePresenter implements SetTargetTemperatureContract.Presenter, SetTargetTemperatureContract.GetCurrentTargetTemperatureListener {
 
-    SetTargetTemperatureContract.View view;
+    static SetTargetTemperatureContract.View view;
     SetTargetTemperatureContract.Model model;
 
     public SetTargetTemperaturePresenter(SetTargetTemperatureContract.View v){
@@ -41,7 +41,7 @@ public class SetTargetTemperaturePresenter implements SetTargetTemperatureContra
 
     @Override
     public void onSuccess(Response<List<GetCurrentTargetTemperatureResponse>> response) {
-        view.displayCurrentTargetTemperature(response.body());
+            view.displayCurrentTargetTemperature(response.body());
     }
 
     @Override

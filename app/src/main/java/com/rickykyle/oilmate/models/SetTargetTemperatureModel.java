@@ -9,6 +9,7 @@ import com.rickykyle.oilmate.network.requests.PutNewOilLimitRequest;
 import com.rickykyle.oilmate.network.requests.PutNewTargetTemperatureRequest;
 import com.rickykyle.oilmate.network.responses.GetCurrentOilLimitResponse;
 import com.rickykyle.oilmate.network.responses.GetCurrentTargetTemperatureResponse;
+import com.rickykyle.oilmate.presenters.SetTargetTemperaturePresenter;
 import com.rickykyle.oilmate.utilities.Globals;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class SetTargetTemperatureModel implements SetTargetTemperatureContract.M
             oilmateApi.getTargetTemperature(Globals.token, Globals.userID).enqueue(new Callback<List<GetCurrentTargetTemperatureResponse>>() {
                 @Override
                 public void onResponse(Call<List<GetCurrentTargetTemperatureResponse>> call, Response<List<GetCurrentTargetTemperatureResponse>> response) {
-                    listener.onSuccess(response);
+                        listener.onSuccess(response);
                 }
 
                 @Override

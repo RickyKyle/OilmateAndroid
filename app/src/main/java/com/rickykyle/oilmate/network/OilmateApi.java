@@ -27,8 +27,9 @@ import retrofit2.http.Path;
 public interface OilmateApi {
 
 
-    @GET("readings")
-    Call<List<Reading>> getOilReadings(@Header("x-access-token") String token);
+    @GET("readings/user/{userID}")
+    Call<List<Reading>> getOilReadings(@Header("x-access-token") String token,
+                                       @Path("userID") int userID);
 
     @GET("tank/oillowerlimit/{userID}")
     Call<List<GetCurrentOilLimitResponse>> getOilLowerLimit(@Header("x-access-token") String token,

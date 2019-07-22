@@ -54,8 +54,6 @@ public class SetTargetTemperatureActivity extends AppCompatActivity implements S
                 presenter.putNewTargetTemperature(Globals.userID, newTargetTemperatureAsInt);
             }
         });
-
-
     }
 
     @Override

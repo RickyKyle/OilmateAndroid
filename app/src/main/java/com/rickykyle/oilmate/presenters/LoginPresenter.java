@@ -1,19 +1,12 @@
 package com.rickykyle.oilmate.presenters;
 
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.rickykyle.oilmate.contracts.LoginContract;
 import com.rickykyle.oilmate.models.LoginModel;
-import com.rickykyle.oilmate.network.requests.LoginRequestResponse;
 import com.rickykyle.oilmate.utilities.Globals;
-import com.rickykyle.oilmate.views.SettingsActivity;
 
-import java.util.List;
-
-import retrofit2.Response;
-
-import static androidx.core.content.ContextCompat.startActivity;
 
 public class LoginPresenter implements LoginContract.Presenter {
 
@@ -25,21 +18,20 @@ public class LoginPresenter implements LoginContract.Presenter {
         model = new LoginModel();
 
         view.setupUI();
-
     }
 
-    public static void setTokenChangeView(String token){
-        Globals.token = token;
-        Log.i("!!HERE!!YES!!", Globals.token);
-        view.goToReadings();
+    public static void setTokenChangeView(String token, int userID){
+            Globals.token = token;
+            Globals.userID = userID;
+            view.goToReadings();
+    }
+
+    public static void invalidLogin(String message){
+        view.showMessage(message);
     }
 
     @Override
     public void postNewLogin(String username, String password, String token) {
         model.postNewLogin(username, password, token);
-        view.showMessage("Login.");
     }
-
-
-
 }

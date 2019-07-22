@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "23704055674",
+    "firebase_url": "https://oilmateandroid.firebaseio.com",
+    "project_id": "oilmateandroid",
+    "storage_bucket": "oilmateandroid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:23704055674:android:d0861930447c7bed",
+        "android_client_info": {
+          "package_name": "com.rickykyle.oilmate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "23704055674-0hvp484b0i0p1m80q9mk67pglffmvnfu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rickykyle.oilmate",
+            "certificate_hash": "9cad157d435311a21d01cdaa8c9a442b505f658d"
+          }
+        },
+        {
+          "client_id": "23704055674-ragcnomfnqe7tk46iha89sdgn7s9liar.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgRhB-Si8oQUSa0Qg1Z5rIq1qPwDcYTpk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "23704055674-ragcnomfnqe7tk46iha89sdgn7s9liar.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

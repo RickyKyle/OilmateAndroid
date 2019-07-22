@@ -10,7 +10,7 @@ public class Globals {
 
     public static int tankSize = 20;
 
-    public static int userID = 1;
+    public static int userID;
 
     public static String token;
 }

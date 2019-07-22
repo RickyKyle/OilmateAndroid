@@ -1,6 +1,7 @@
 package com.rickykyle.oilmate.views;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -14,10 +15,12 @@ import android.widget.ImageView;
 
 import com.rickykyle.oilmate.R;
 import com.rickykyle.oilmate.contracts.CurrentOilContract;
+import com.rickykyle.oilmate.utilities.Globals;
 
 public class SettingsActivity extends AppCompatActivity {
 
     ImageView backArrow;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,13 @@ public class SettingsActivity extends AppCompatActivity {
     public void onSetTargetTemperatureClick (View v){
         Intent goToTargetTemperature = new Intent(getBaseContext(), SetTargetTemperatureActivity.class);
         startActivity(goToTargetTemperature);
+    }
+
+    public void onLogOutButtonClick(View vi){
+        Globals.userID = 0;
+        Globals.token = null;
+        Intent goToLogIn = new Intent(getBaseContext(), LoginActivity.class);
+        startActivity(goToLogIn);
     }
 
 
