@@ -3,6 +3,10 @@ package com.rickykyle.oilmate.network.requests;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/*
+ * Creates the data object for the request body when
+ * changing the user's oil limit.
+ */
 public class PutNewOilLimitRequest {
 
     @SerializedName("userID")

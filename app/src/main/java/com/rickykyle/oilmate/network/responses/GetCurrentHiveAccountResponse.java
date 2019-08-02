@@ -3,6 +3,10 @@ package com.rickykyle.oilmate.network.responses;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/*
+ * Model for the response received when requesting the current Hive
+ * Account.
+ */
 public class GetCurrentHiveAccountResponse {
 
     @SerializedName("hiveID")

@@ -19,6 +19,9 @@ import com.rickykyle.oilmate.utilities.Globals;
 
 import java.util.List;
 
+/*
+ * This class is the view for the link hive account activity.
+ */
 public class LinkHiveAccountActivity extends AppCompatActivity implements LinkHiveAccountContract.View {
 
     Button submit;
@@ -40,12 +43,18 @@ public class LinkHiveAccountActivity extends AppCompatActivity implements LinkHi
         presenter = new LinkHiveAccountPresenter(this);
     }
 
+    /*
+     * Overrides transition animation.
+     */
     @Override
     protected void onPause() {
         super.onPause();
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
+    /*
+     * Initialises the views and configures the button.
+     */
     @Override
     public void setupUI() {
         hiveDescription = findViewById(R.id.hiveDescription);
@@ -62,19 +71,28 @@ public class LinkHiveAccountActivity extends AppCompatActivity implements LinkHi
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Convert captured data to the correct format.
                 String username = hiveEmail.getText().toString();
                 String password = hivePassword.getText().toString();
                 int setTemperature = Integer.parseInt(hiveTargetTemperature.getText().toString());
+                // Send data to the presenter.
                 presenter.postNewHiveAccount(username, password, setTemperature);
             }
         });
     }
 
+    /*
+     * Displays messages passed to the view as a toast.
+     */
     @Override
     public void showMessage(String msg) {
         Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
     }
 
+    /*
+     * If an account exits / has been just linked, hide the inputs and replace with text
+     * which says that the account is linked.
+     */
     @Override
     public void updateCurrentHiveAccountDisplay(Boolean accountExists) {
         if (accountExists){
@@ -91,6 +109,9 @@ public class LinkHiveAccountActivity extends AppCompatActivity implements LinkHi
         }
     }
 
+    /*
+     * When the back arrow is clicked, go back to settings.
+     */
     public void onLinkHiveAccountBackArrowClick (View v){
         Intent goToSettings = new Intent(getBaseContext(), SettingsActivity.class);
         startActivity(goToSettings);

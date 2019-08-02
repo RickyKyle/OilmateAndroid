@@ -15,30 +15,45 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/*
+ * This class handles the network calls for changing the user's lower
+ * oil limit.
+ */
 public class ChangeLowerOilLimitModel implements ChangeLowerOilLimitContract.Model {
 
+    /*
+     * Get the current lower oil limit from the API.
+     */
     @Override
     public void getCurrentLowerOilLimit(final ChangeLowerOilLimitContract.GetCurrentOilLimitListener listener) {
 
         try {
+            // Create Retrofit instance.
             OilmateApi oilmateApi = ServiceCreator.createService(OilmateApi.class);
+
+            // Select and send HTTP request and pass needed data.
             oilmateApi.getOilLowerLimit(Globals.token, Globals.userID).enqueue(new Callback<List<GetCurrentOilLimitResponse>>() {
                 @Override
                 public void onResponse(Call<List<GetCurrentOilLimitResponse>> call, Response<List<GetCurrentOilLimitResponse>> response) {
+                   // Pass response to listener.
                     listener.onSuccess(response);
                 }
 
                 @Override
                 public void onFailure(Call<List<GetCurrentOilLimitResponse>> call, Throwable t) {
+                    // Pass failure to listener.
                     listener.onFailure(t);
                 }
-
             });
         } catch (Exception e) {
             e.printStackTrace();
+
         }
     }
 
+    /*
+     * Change the oil limit via a PUT request.
+     */
     @Override
     public void putNewLowerOilLimit(int userID, int newLimit) {
 
@@ -60,7 +75,5 @@ public class ChangeLowerOilLimitModel implements ChangeLowerOilLimitContract.Mod
             e.printStackTrace();
         }
     }
-
-
 }
 

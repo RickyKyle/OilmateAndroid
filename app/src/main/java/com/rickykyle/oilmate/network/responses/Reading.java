@@ -5,6 +5,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
 
+/*
+ * Model reading response.
+ */
 public class Reading {
 
     @SerializedName("readingID")

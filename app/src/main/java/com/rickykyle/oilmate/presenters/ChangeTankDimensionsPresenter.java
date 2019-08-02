@@ -8,6 +8,10 @@ import java.util.List;
 
 import retrofit2.Response;
 
+/*
+ * Passes the data needed for the ChangeTankDimensions activity between the view and model,
+ * and performs validation.
+ */
 public class ChangeTankDimensionsPresenter implements ChangeTankDimensionsContract.Presenter, ChangeTankDimensionsContract.GetCurrentTankDimensionsListener {
 
     ChangeTankDimensionsContract.View view;
@@ -21,11 +25,17 @@ public class ChangeTankDimensionsPresenter implements ChangeTankDimensionsContra
         getCurrentTankDimensions();
     }
 
+    /*
+     * Pass listener to the model.
+     */
     @Override
     public void getCurrentTankDimensions() {
         model.getCurrentTankDimensions(this);
     }
 
+    /*
+     * Validate and send the new dimensions to the model.
+     */
     @Override
     public void putNewTankDimensions(int userID, double diameter, double length) {
        if(diameter <= 0 || length <= 0){
@@ -39,16 +49,25 @@ public class ChangeTankDimensionsPresenter implements ChangeTankDimensionsContra
        }
     }
 
+    /*
+     * Update display on successful network call.
+     */
     @Override
     public void onSuccess(Response<List<GetCurrentTankDimensionsResponse>> response) {
         view.displayCurrentTankDimensions(response.body());
     }
 
+    /*
+     * Display an error on an erroneous call.
+     */
     @Override
     public void onError(Response<List<GetCurrentTankDimensionsResponse>> response) {
         view.showMessage("Error.");
     }
 
+    /*
+     * On failure.
+     */
     @Override
     public void onFailure(Throwable t) {
         view.showMessage(t.getMessage());

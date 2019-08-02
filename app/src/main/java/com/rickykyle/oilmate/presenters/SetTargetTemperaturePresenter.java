@@ -8,6 +8,10 @@ import java.util.List;
 
 import retrofit2.Response;
 
+/*
+ * This class gets the current target temperature from the model and passes it to the view,
+ * and takes the new target temperature from the view and passes it to the model.
+ */
 public class SetTargetTemperaturePresenter implements SetTargetTemperatureContract.Presenter, SetTargetTemperatureContract.GetCurrentTargetTemperatureListener {
 
     static SetTargetTemperatureContract.View view;
@@ -21,11 +25,17 @@ public class SetTargetTemperaturePresenter implements SetTargetTemperatureContra
         getCurrentTargetTemperature();
     }
 
+    /*
+     * Gets the current target temperature by passing the listener to the model.
+     */
     @Override
     public void getCurrentTargetTemperature() {
         model.getCurrentTargetTemperature(this);
     }
 
+    /*
+     * Validates data sent by the user before passing it to the model.
+     */
     @Override
     public void putNewTargetTemperature(int userID, int targetTemperature) {
        if(targetTemperature > 50){
@@ -39,16 +49,25 @@ public class SetTargetTemperaturePresenter implements SetTargetTemperatureContra
        }
     }
 
+    /*
+     * Updates view on successful response.
+     */
     @Override
     public void onSuccess(Response<List<GetCurrentTargetTemperatureResponse>> response) {
             view.displayCurrentTargetTemperature(response.body());
     }
 
+    /*
+     * Display error message.
+     */
     @Override
     public void onError(Response<List<GetCurrentTargetTemperatureResponse>> response) {
         view.showMessage("Error.");
     }
 
+    /*
+     * Display failure message.
+     */
     @Override
     public void onFailure(Throwable t) {
         view.showMessage(t.getMessage());

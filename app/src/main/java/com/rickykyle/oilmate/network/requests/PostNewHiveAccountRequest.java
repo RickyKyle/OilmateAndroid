@@ -3,6 +3,10 @@ package com.rickykyle.oilmate.network.requests;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/*
+ * Model for the data sent in a POST to the API when the user is linking
+ * their Hive account.
+ */
 public class PostNewHiveAccountRequest {
 
     @SerializedName("userID")

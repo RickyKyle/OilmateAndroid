@@ -16,6 +16,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/*
+ * This class is the view class for the list of readings.
+ */
 public class ReadingListActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -29,12 +32,18 @@ public class ReadingListActivity extends AppCompatActivity {
         setReadingListRecycler();
     }
 
+    /*
+     * Overrides transitions between screens.
+     */
     @Override
     protected void onPause() {
         super.onPause();
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
+    /*
+     * Uses the reading list adapter to create a RecyclerView.
+     */
     public void setReadingListRecycler(){
         recyclerView = findViewById(R.id.reading_list_recycler);
 

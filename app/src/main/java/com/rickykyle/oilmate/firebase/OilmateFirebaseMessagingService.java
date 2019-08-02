@@ -5,6 +5,12 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+/*
+ * This class generates Firebase tokens when the user first installs Oilmate on
+ * their device or when they reinstall or update the application.  Firebase
+ * implementation was learned from this tutorial:
+ * https://www.techotopia.com/index.php/Firebase_Cloud_Messaging
+ */
 public class OilmateFirebaseMessagingService extends FirebaseMessagingService {
 
     public OilmateFirebaseMessagingService() {
@@ -16,7 +22,6 @@ public class OilmateFirebaseMessagingService extends FirebaseMessagingService {
         super.onNewToken(token);
         Log.e("NEW FCM TOKEN: ", token);
 
-        sendRegistrationToServer(token);
     }
 
     @Override
@@ -25,7 +30,4 @@ public class OilmateFirebaseMessagingService extends FirebaseMessagingService {
 
     }
 
-    public void sendRegistrationToServer(String token){
-
-    }
 }

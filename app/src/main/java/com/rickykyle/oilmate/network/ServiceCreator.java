@@ -5,6 +5,9 @@ import com.rickykyle.oilmate.utilities.Constants;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/*
+ * This class generates an instance of the Retrofit service.
+ */
 public class ServiceCreator {
 
     // Required information to build the connection - BaseURL and the plug in to turn the JSON response

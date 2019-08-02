@@ -1,12 +1,15 @@
 package com.rickykyle.oilmate.contracts;
 
 import com.rickykyle.oilmate.network.responses.GetCurrentHiveAccountResponse;
-import com.rickykyle.oilmate.utilities.Globals;
 
 import java.util.List;
 
 import retrofit2.Response;
 
+/*
+ * This interface is the contract for the LinkHiveAccount Activity from the
+ * settings screen.
+ */
 public interface LinkHiveAccountContract {
 
     interface Model {

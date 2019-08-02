@@ -19,11 +19,15 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
-import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
+/*
+ * This interface constructs the HTTP requests for each network request used
+ * by Retrofit.  These methods are passed to Retrofit during the call in the
+ * activity's respective model.
+ */
 public interface OilmateApi {
 
 

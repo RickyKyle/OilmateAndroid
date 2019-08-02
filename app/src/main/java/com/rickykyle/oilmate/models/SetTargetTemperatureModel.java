@@ -18,6 +18,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/*
+ * This class handles the network calls for getting and setting the current target temperature.
+ */
 public class SetTargetTemperatureModel implements SetTargetTemperatureContract.Model {
 
     @Override

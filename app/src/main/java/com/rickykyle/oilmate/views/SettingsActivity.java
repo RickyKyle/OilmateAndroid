@@ -17,6 +17,10 @@ import com.rickykyle.oilmate.R;
 import com.rickykyle.oilmate.contracts.CurrentOilContract;
 import com.rickykyle.oilmate.utilities.Globals;
 
+/*
+ * Class consisting mostly of buttons to navigate to each of the activities which
+ * customise the user's experience.
+ */
 public class SettingsActivity extends AppCompatActivity {
 
     ImageView backArrow;
@@ -59,6 +63,9 @@ public class SettingsActivity extends AppCompatActivity {
         startActivity(goToTargetTemperature);
     }
 
+    /*
+     * Erases session variables and sends user the login screen.
+     */
     public void onLogOutButtonClick(View vi){
         Globals.userID = 0;
         Globals.token = null;

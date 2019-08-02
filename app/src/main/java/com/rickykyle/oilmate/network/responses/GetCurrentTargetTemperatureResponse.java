@@ -3,6 +3,9 @@ package com.rickykyle.oilmate.network.responses;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/*
+ * Model response for getting the current Hive target temperature.
+ */
 public class GetCurrentTargetTemperatureResponse {
 
     @SerializedName("hiveID")

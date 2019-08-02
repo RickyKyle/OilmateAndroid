@@ -3,6 +3,9 @@ package com.rickykyle.oilmate.network.requests;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/*
+ * Request model for putting a new target temperature.
+ */
 public class PutNewTargetTemperatureRequest {
 
     @SerializedName("userID")

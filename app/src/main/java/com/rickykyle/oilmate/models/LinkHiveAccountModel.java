@@ -15,15 +15,25 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/*
+ * This class handles the network calls for linking a Hive account.
+ */
 public class LinkHiveAccountModel implements LinkHiveAccountContract.Model {
 
+    /*
+     * Checks if the user has a hive account already.
+     */
     @Override
     public void getCurrentHiveAccount(final LinkHiveAccountContract.GetCurrentHiveAccountListener listener) {
         try {
+            // Create Retrofit instance.
             OilmateApi oilmateApi = ServiceCreator.createService(OilmateApi.class);
+
+            // Select HTTP request from the oilmateApi interface and pass the needed data.
             oilmateApi.getCurrentHiveAccount(Globals.token, Globals.userID).enqueue(new Callback<List<GetCurrentHiveAccountResponse>>() {
                 @Override
                 public void onResponse(Call<List<GetCurrentHiveAccountResponse>> call, Response<List<GetCurrentHiveAccountResponse>> response) {
+                    // Pass response to listener.
                     listener.onSuccess(response);
                     Log.i("API RESPONSE", "onResponse: " + response.code());
                 }
@@ -39,6 +49,9 @@ public class LinkHiveAccountModel implements LinkHiveAccountContract.Model {
         }
     }
 
+    /*
+     * Handles POSTing a new Hive account to the API.
+     */
     @Override
     public void postNewHiveAccount(int userID, String hiveUsername, String hivePassword, int setTemperature) {
         try {
@@ -47,7 +60,6 @@ public class LinkHiveAccountModel implements LinkHiveAccountContract.Model {
                 @Override
                 public void onResponse(Call<PostNewHiveAccountRequest> call, Response<PostNewHiveAccountRequest> response) {
                     Log.i("API", "Put Success!");
-
                 }
 
                 @Override

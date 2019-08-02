@@ -11,6 +11,10 @@ import java.util.List;
 
 import retrofit2.Response;
 
+/*
+ * This class is responsible for pulling the data from - and feeding the data to - the model from
+ * the view.
+ */
 public class LinkHiveAccountPresenter implements LinkHiveAccountContract.Presenter, LinkHiveAccountContract.GetCurrentHiveAccountListener {
 
     LinkHiveAccountContract.View view;
@@ -24,11 +28,18 @@ public class LinkHiveAccountPresenter implements LinkHiveAccountContract.Present
         checkCurrentHiveAccount();
 
     }
+
+    /*
+     * Passes an instance of the listener to the model.
+     */
     @Override
     public void checkCurrentHiveAccount() {
         model.getCurrentHiveAccount(this);
     }
 
+    /*
+     * Takes the data from the view and passes it to the model.
+     */
     @Override
     public void postNewHiveAccount(String hiveUsername, String hivePassword, int setTemperature) {
         model.postNewHiveAccount(Globals.userID, hiveUsername, hivePassword, setTemperature);
@@ -36,6 +47,9 @@ public class LinkHiveAccountPresenter implements LinkHiveAccountContract.Present
         view.updateCurrentHiveAccountDisplay(true);
     }
 
+    /*
+     * On a successful response, updates the view.
+     */
     @Override
     public void onSuccess(Response<List<GetCurrentHiveAccountResponse>> response) {
         if(response.body().size() != 0){
@@ -43,10 +57,17 @@ public class LinkHiveAccountPresenter implements LinkHiveAccountContract.Present
         }
     }
 
+    /*
+     * On Error
+     */
     @Override
     public void onError(Response<List<GetCurrentHiveAccountResponse>> response) {
+        view.showMessage("Error");
     }
 
+    /*
+     * On failure
+     */
     @Override
     public void onFailure(Throwable t) {
         view.showMessage(t.getMessage());

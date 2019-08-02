@@ -6,6 +6,10 @@ import java.util.List;
 
 import retrofit2.Response;
 
+/*
+ * This interface is the contract for the ChangeTankDimensions Activity
+ * from the Settings menu.
+ */
 public interface ChangeTankDimensionsContract {
 
     interface Model {

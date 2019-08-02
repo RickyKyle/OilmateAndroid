@@ -6,6 +6,10 @@ import java.util.List;
 
 import retrofit2.Response;
 
+/*
+ * This interface is the contract between the model-view-presenter for the ChangeLowerOilLimit
+ * Activity in the Settings menu.
+ */
 public interface ChangeLowerOilLimitContract {
 
     interface Model {

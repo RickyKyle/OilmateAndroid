@@ -3,6 +3,9 @@ package com.rickykyle.oilmate.network.requests;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/*
+ * Model for the changing tank dimensions request.
+ */
 public class PutNewTankDimensionsRequest {
 
     @SerializedName("userID")

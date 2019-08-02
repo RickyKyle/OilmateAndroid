@@ -6,6 +6,10 @@ import java.util.List;
 
 import retrofit2.Response;
 
+/*
+ * This interface is the contract between the model-view-presenter of the
+ * SetTargetTemperature activity from the settings menu.
+ */
 public interface SetTargetTemperatureContract {
 
     interface Model {

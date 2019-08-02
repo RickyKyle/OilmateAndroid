@@ -3,6 +3,9 @@ package com.rickykyle.oilmate.network.requests;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/*
+ * Model for the request to and response from the API when the user logs in.
+ */
 public class LoginRequestResponse {
 
     @SerializedName("username")
